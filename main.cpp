@@ -1,19 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 
 const char *int2String(int val, int base){
 	char *string = (char *)malloc(sizeof(char)*32);
 	char *p = string;
 	char *p1 = string;
 	unsigned char flag;
-	if(-val == val){
-//		strcpy(string, "8463847412-");
-//		p = &string[10];
-//		val = 0;
-		return "-2147483648";
-	}
+	if(-val == val) return "-2147483648";
 	flag = val > 0 ? 0 : (val = -val, 1);
 	while(val){
 		*p += (*p = val % base, *p) > 9 ? '7' : '0';
